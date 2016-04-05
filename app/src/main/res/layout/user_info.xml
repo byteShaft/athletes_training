@@ -14,13 +14,14 @@
     <com.pits.athletestraining.utils.RoundedImageView
         android:id="@+id/round_image"
         android:layout_margin="5dp"
-        android:layout_height="80dp"
+        android:padding="5dp"
+        android:layout_height="90dp"
         android:layout_width="80dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/user_temp_image"
         android:layout_gravity="center|center_horizontal"/>
     <View
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
         android:layout_marginBottom="2dp"
         android:layout_height="2dp"
         android:background="@color/colorPrimary"/>
@@ -31,21 +32,20 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="@string/full_name"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginRight="2dp"
             android:textSize="16sp"
             android:textColor="@android:color/widget_edittext_dark"
-            android:layout_gravity="start"
             android:padding="2dp"
             android:layout_margin="2dp"
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
         <TextView
-            android:text="Bilal shahid"
             android:textSize="16sp"
             android:textColor="@android:color/widget_edittext_dark"
             android:layout_gravity="start"
-            android:id="@+id/display_full_name_text_view"
+            android:id="@+id/full_name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <EditText
@@ -82,11 +82,10 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
         <TextView
-            android:text="Bilal shahid"
             android:textSize="16sp"
             android:textColor="@android:color/widget_edittext_dark"
             android:layout_gravity="start"
-            android:id="@+id/display_name_text_view"
+            android:id="@+id/name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <EditText
@@ -123,11 +122,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="Germany"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_team_text_view"
+                android:id="@+id/team_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -164,11 +162,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="1"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_position_text_view"
+                android:id="@+id/position_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -205,11 +202,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="21"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_number_text_view"
+                android:id="@+id/number_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -246,11 +242,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="Group A"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_group_text_view"
+                android:id="@+id/group_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -287,11 +282,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="7th street avenue london"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_from_text_view"
+                android:id="@+id/from_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -329,11 +323,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="bla bla "
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_to_text_view"
+                android:id="@+id/to_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -371,11 +364,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="21-09-1992"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_birthday_text_view"
+                android:id="@+id/birthday_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -413,15 +405,14 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="0092*******"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_mobile_number_text_view"
+                android:id="@+id/mobile_number_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
-                android:id="@+id/edit_text_phone_number"
+                android:id="@+id/edit_text_mobile_number"
                 android:background="@drawable/edit_text_background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -455,11 +446,10 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="example@somthing.com"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_email_text_view"
+                android:id="@+id/email_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -497,13 +487,13 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="other details about player"
                 android:textSize="16sp"
                 android:textColor="@android:color/widget_edittext_dark"
                 android:layout_gravity="start"
-                android:id="@+id/display_info_text_view"
+                android:id="@+id/info_text_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"/>
             <EditText
                 android:id="@+id/edit_text_other_info"
                 android:background="@drawable/edit_text_background"
@@ -512,8 +502,23 @@
                 android:inputType="textCapSentences"
                 android:textCursorDrawable="@null"
                 android:layout_gravity="start"
+                android:layout_marginBottom="30dp"
                 android:visibility="gone"
                 />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button_update"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ButtonMaterial"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#ffffff"
+            android:text="Update info" />
     </LinearLayout>
 </ScrollView>

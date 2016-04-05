@@ -43,10 +43,10 @@ public class RoundedImageView  extends ImageView {
             return;
         }
 
-        Bitmap b = null;
+        Bitmap b;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
                 && drawable instanceof VectorDrawable) {
-            ((VectorDrawable) drawable).draw(canvas);
+            (drawable).draw(canvas);
             b = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);
             Canvas c = new Canvas();
             c.setBitmap(b);
