@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CFD8DC">
+
+    <RelativeLayout
+        android:id="@+id/team_info_header_container"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="70dp" >
+
+        <RelativeLayout
+            android:id="@+id/team_logo_container"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@android:drawable/dialog_holo_light_frame">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo"
+                android:scaleType="centerCrop"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/list_title_team"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="17sp"
+            android:textColor="#ffffff"
+            android:text="Teaaaaaaaam"
+            android:layout_toRightOf="@+id/team_logo_container" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/line_header_center"
+        android:layout_width="match_parent"
+        android:layout_height=".1dp"
+        android:background="#CFD8DC"
+        android:layout_below="@+id/team_info_header_container">
+    </ImageView>
+
+    <RelativeLayout
+        android:id="@+id/team_info_subheader_container"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/line_header_center"
+        android:background="@color/colorPrimary" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textColor="#ffffff"
+            android:text="Other Team Info" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/players_list_header"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/team_info_subheader_container"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:textColor="#000000"
+        android:text="Players" />
+
+    <ImageView
+        android:id="@+id/players_list_header_separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/players_list_header"
+        android:background="@color/colorPrimary">
+    </ImageView>
+
+    <ListView
+        android:id="@+id/team_players_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/players_list_header_separator">
+    </ListView>
+
+</RelativeLayout>

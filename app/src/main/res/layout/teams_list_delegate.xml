@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/delegate_parent"
+    android:layout_width="match_parent"
+    android:layout_height="75dp" >
+
+    <RelativeLayout
+        android:id="@+id/list_logo_team_container"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/dialog_holo_light_frame">
+
+        <ImageView
+            android:id="@+id/list_logo_team"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo"
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/list_title_team"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="17sp"
+        android:layout_toRightOf="@+id/list_logo_team_container" />
+
+</RelativeLayout>
