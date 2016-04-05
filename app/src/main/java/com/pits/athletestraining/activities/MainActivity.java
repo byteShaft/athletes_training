@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        getSupportActionBar().hide();
 //        mUsernameEntry = (EditText) findViewById(R.id.username_entry);
 //        mPasswordEntry = (EditText) findViewById(R.id.password_entry);
+        startActivity(new Intent(getApplicationContext(), UserInfoActivity.class));
     }
 
     @Override

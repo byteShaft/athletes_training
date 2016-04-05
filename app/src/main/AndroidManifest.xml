@@ -22,6 +22,7 @@
             android:name=".activities.TeamsListActivity"
             android:label="Teams"/>
         <activity android:name=".activities.TeamInfoActivity"/>
+        <activity android:name=".activities.UserInfoActivity" android:label="user details"/>
     </application>
 
 </manifest>
