@@ -81,23 +81,22 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
             if (textView.getVisibility() == View.VISIBLE) {
                 textView.setVisibility(View.GONE);
                 mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), fadeOut);
-                Log.i("TAG", "hiding textViews");
             } else {
                 textView.setVisibility(View.VISIBLE);
                 mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), fadeIn);
-                Log.i("TAG", "showing text");
 
             }
             textView.startAnimation(mAnimation);
         }
         for (EditText editText: editTexts) {
-            Log.i("TAG", "hiding editText");
+
             if (editText.getVisibility() == View.VISIBLE) {
+                showingEditText = false;
                 editText.setVisibility(View.GONE);
                 mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), fadeOut);
             } else {
+                Log.i("TAG", editText.toString());
                 showingEditText = true;
-                Log.i("TAG", "showing editText");
                 editText.setVisibility(View.VISIBLE);
                 mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), fadeIn);
             }
