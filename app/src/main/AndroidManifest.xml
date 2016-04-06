@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity">
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +23,7 @@
             android:name=".activities.TeamsListActivity"
             android:label="Teams"/>
         <activity android:name=".activities.TeamInfoActivity"/>
-        <activity android:name=".activities.UserInfoActivity" android:label="user details"/>
+        <activity android:name=".activities.PlayerInfoActivity" android:label="user details"/>
     </application>
 
 </manifest>
