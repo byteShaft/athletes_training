@@ -2,7 +2,6 @@ package com.pits.athletestraining.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -91,11 +90,12 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
         for (EditText editText: editTexts) {
 
             if (editText.getVisibility() == View.VISIBLE) {
+                updateButton.setVisibility(View.GONE);
                 showingEditText = false;
                 editText.setVisibility(View.GONE);
                 mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), fadeOut);
             } else {
-                Log.i("TAG", editText.toString());
+                updateButton.setVisibility(View.VISIBLE);
                 showingEditText = true;
                 editText.setVisibility(View.VISIBLE);
                 mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), fadeIn);
