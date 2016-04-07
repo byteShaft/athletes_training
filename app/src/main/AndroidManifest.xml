@@ -24,6 +24,11 @@
             android:label="Teams"/>
         <activity android:name=".activities.TeamInfoActivity"/>
         <activity android:name=".activities.PlayerInfoActivity" android:label="user details"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
     </application>
 
 </manifest>
