@@ -19,9 +19,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         startActivity(new Intent(getApplicationContext(), TabsActivity.class));
 //        setContentView(R.layout.activity_main);
+        setContentView(R.layout.content_main);
+//        startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar.setVisibility(View.GONE);
 //        getSupportActionBar().hide();
-//        mUsernameEntry = (EditText) findViewById(R.id.username_entry);
-//        mPasswordEntry = (EditText) findViewById(R.id.password_entry);
+        mUsernameEntry = (EditText) findViewById(R.id.username_entry);
+        mPasswordEntry = (EditText) findViewById(R.id.password_entry);
+//        startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
     }
 
     @Override
