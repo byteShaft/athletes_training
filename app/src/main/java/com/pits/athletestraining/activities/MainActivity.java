@@ -3,7 +3,6 @@ package com.pits.athletestraining.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,14 +17,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setVisibility(View.GONE);
+        setContentView(R.layout.content_main);
+//        startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar.setVisibility(View.GONE);
 //        getSupportActionBar().hide();
-//        getSupportActionBar().hide();
-//        mUsernameEntry = (EditText) findViewById(R.id.username_entry);
-//        mPasswordEntry = (EditText) findViewById(R.id.password_entry);
+        mUsernameEntry = (EditText) findViewById(R.id.username_entry);
+        mPasswordEntry = (EditText) findViewById(R.id.password_entry);
 //        startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
     }
 

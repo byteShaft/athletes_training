@@ -2,11 +2,13 @@ package com.pits.athletestraining.activities;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -17,7 +19,7 @@ import com.pits.athletestraining.utils.TeamsListHelpers;
 
 import java.util.List;
 
-public class TeamsListActivity extends AppCompatActivity {
+public class TeamsListActivity extends AppCompatActivity implements ListView.OnItemClickListener {
 
     private ListView mTeamsListView;
     private ViewHolder holder;
@@ -32,6 +34,15 @@ public class TeamsListActivity extends AppCompatActivity {
                 TeamsListHelpers.getAllTeams());
         mTeamsListView.setAdapter(adapter);
         mTeamsListView.setDivider(null);
+        mTeamsListView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getApplicationContext(), TeamInfoActivity.class);
+        String[] data = (String[]) mTeamsListView.getItemAtPosition(position);
+        intent.putExtra("team_name", data[1]);
+        startActivity(intent);
     }
 
     private class TeamsListAdapter extends ArrayAdapter<String[]> {
