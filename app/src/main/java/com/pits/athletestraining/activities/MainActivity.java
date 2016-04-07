@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(getApplicationContext(), TeamInfoActivity.class));
+        startActivity(new Intent(getApplicationContext(), TabsActivity.class));
 //        setContentView(R.layout.activity_main);
 //        getSupportActionBar().hide();
 //        mUsernameEntry = (EditText) findViewById(R.id.username_entry);
