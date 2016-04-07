@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
-//        startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
+        startActivity(new Intent(getApplicationContext(), TrainingSessionList.class));
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        toolbar.setVisibility(View.GONE);
 //        getSupportActionBar().hide();
