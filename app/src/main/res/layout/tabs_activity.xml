@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="15dp"
+            android:layout_width="match_parent"
+            android:minHeight="?android:attr/actionBarSize"
+            android:gravity="bottom" />
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CFD8DC">
+
+            <RelativeLayout
+                android:id="@+id/team_info_header_container"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_height="30dp" >
+
+                <TextView
+                    android:id="@+id/list_title_team"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#CFD8DC"
+                    android:text="Team: Bla Bla Bla 2016" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/team_info_subheader_container"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/team_info_header_container"
+                android:background="@color/colorPrimary" >
+                <View
+                    android:background="#CFD8DC"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dip">
+                </View>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#CFD8DC"
+                    android:text="Training Sessions 6-5-2016"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/team_calculation"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/team_info_subheader_container"
+                android:background="@color/colorPrimary" >
+
+                <View
+                    android:background="#CFD8DC"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dip">
+                </View>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#CFD8DC"
+                    android:text="Calculations"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:background="#CFD8DC"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dip">
+        </View>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</android.support.design.widget.CoordinatorLayout>
