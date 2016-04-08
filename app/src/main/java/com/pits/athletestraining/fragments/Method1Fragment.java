@@ -3,6 +3,8 @@ package com.pits.athletestraining.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,7 @@ public class Method1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBaseView = inflater.inflate(R.layout.paramets_list_delegate, container, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         ListView listView = (ListView) mBaseView.findViewById(R.id.parameters_list);
         ListAdapter listAdapter = new ListAdapter();
         listView.setAdapter(listAdapter);
