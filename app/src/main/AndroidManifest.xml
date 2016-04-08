@@ -23,9 +23,12 @@
             android:name=".activities.TeamsListActivity"
             android:label="Teams"/>
         <activity android:name=".activities.TeamInfoActivity"/>
-        <activity android:name=".activities.PlayerInfoActivity" android:label="user details"/>
+        <activity android:name=".activities.TabsActivity"/>
+        <activity android:name=".activities.PlayerInfoActivity"
+            android:label="user details"/>
         <activity android:name=".activities.TrainingSessionList"/>
-        <activity android:name=".activities.MainActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
