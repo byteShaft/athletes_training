@@ -10,10 +10,12 @@ public class AppGlobals extends Application {
 
     private static Context sContext;
     private static SharedPreferences sPreferences;
+    private static boolean freshLaunched = false;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        freshLaunched = true;
         sContext = getApplicationContext();
         sPreferences = PreferenceManager.getDefaultSharedPreferences(sContext);
     }
@@ -24,5 +26,9 @@ public class AppGlobals extends Application {
 
     public static SharedPreferences getPreferences() {
         return sPreferences;
+    }
+
+    public static boolean isFreshLaunch() {
+        return freshLaunched;
     }
 }
