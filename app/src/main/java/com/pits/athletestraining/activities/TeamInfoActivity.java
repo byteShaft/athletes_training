@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,9 +22,10 @@ import com.pits.athletestraining.utils.TeamsListHelpers;
 
 import java.util.ArrayList;
 
-public class TeamInfoActivity extends AppCompatActivity {
+public class TeamInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView mRecyclerView;
+    private Button optionItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,13 @@ public class TeamInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_team_info);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         getSupportActionBar().hide();
-        String titleText = getIntent().getExtras().getString("team_name");
-        TextView title = (TextView) findViewById(R.id.list_title_team);
-        title.setText(titleText);
-
+        if (getIntent().getExtras() != null) {
+            String titleText = getIntent().getExtras().getString("team_name");
+            TextView title = (TextView) findViewById(R.id.list_title_team);
+            title.setText(titleText);
+        }
+        optionItem = (Button) findViewById(R.id.option_item);
+        optionItem.setOnClickListener(this);
         mRecyclerView = (RecyclerView) findViewById(R.id.team_players_list);
         ArrayList<String[]> list = new ArrayList<>();
         String[] player1 = {"logo", "Messi", "1"};
@@ -63,6 +68,15 @@ public class TeamInfoActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.option_item:
+                startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
+                break;
+        }
     }
 
     static class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements
@@ -100,8 +114,6 @@ public class TeamInfoActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
             holder.setIsRecyclable(false);
-            System.out.println(viewHolder == null);
-            System.out.println(viewHolder.title == null);
             viewHolder.title.setText(items.get(position)[1]);
             viewHolder.number.setText(items.get(position)[2]);
         }

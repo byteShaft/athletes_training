@@ -28,13 +28,23 @@
 
         <TextView
             android:id="@+id/list_title_team"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:textSize="17sp"
             android:textColor="#ffffff"
             android:text="Teaaaaaaaam"
             android:layout_toRightOf="@+id/team_logo_container" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/option_item"
+            android:text="History"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
@@ -85,7 +95,7 @@
         android:id="@+id/team_players_list"
         android:layout_width="match_parent"
         android:scrollbars="vertical"
-        android:background="#C8E6C9"
+        android:background="@android:color/background_dark"
         android:layout_height="match_parent"
         android:layout_below="@+id/players_list_header_separator">
     </android.support.v7.widget.RecyclerView>
