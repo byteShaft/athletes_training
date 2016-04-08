@@ -49,7 +49,7 @@
                 <View
                     android:background="#CFD8DC"
                     android:layout_width="match_parent"
-                    android:layout_height="0.1dp">
+                    android:layout_height="0.1dip">
                 </View>
 
                 <TextView
@@ -72,7 +72,7 @@
                 <View
                     android:background="#CFD8DC"
                     android:layout_width="match_parent"
-                    android:layout_height="0.1dp">
+                    android:layout_height="0.1dip">
                 </View>
 
                 <TextView
@@ -90,7 +90,7 @@
         <View
             android:background="#CFD8DC"
             android:layout_width="match_parent"
-            android:layout_height="0.1dp">
+            android:layout_height="0.1dip">
         </View>
 
         <android.support.design.widget.TabLayout
