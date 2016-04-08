@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(getApplicationContext(), TabsActivity.class));
+//        startActivity(new Intent(getApplicationContext(), TabsActivity.class));
 //        setContentView(R.layout.activity_main);
         setContentView(R.layout.content_main);
 //        mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                .addConnectionCallbacks(this)
 //                .addOnConnectionFailedListener(this)
 //                .build();
-        startActivity(new Intent(getApplicationContext(), TrainingSessionList.class));
+//        startActivity(new Intent(getApplicationContext(), TrainingSessionList.class));
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        toolbar.setVisibility(View.GONE);
 //        getSupportActionBar().hide();
