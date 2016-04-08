@@ -1,7 +1,6 @@
 package com.pits.athletestraining.activities;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,21 +24,21 @@ import java.util.ArrayList;
 public class TeamsListActivity extends AppCompatActivity {
 
     public static CustomView viewHolder;
-    public RecyclerView sRecyclerView;
+    public RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teams_list);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        sRecyclerView = (RecyclerView) findViewById(R.id.list_teams);
+        mRecyclerView = (RecyclerView) findViewById(R.id.list_teams);
         CustomAdapter adapter = new CustomAdapter(TeamsListHelpers.getAllTeams());
-        sRecyclerView.setLayoutManager(linearLayoutManager);
-        sRecyclerView.canScrollVertically(LinearLayoutManager.VERTICAL);
-        sRecyclerView.setHasFixedSize(true);
-        sRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getApplicationContext()));
-        sRecyclerView.setAdapter(adapter);
-        sRecyclerView.addOnItemTouchListener(new CustomAdapter(TeamsListHelpers.getAllTeams(),
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.canScrollVertically(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getApplicationContext()));
+        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.addOnItemTouchListener(new CustomAdapter(TeamsListHelpers.getAllTeams(),
                 getApplicationContext(),
                 new CustomAdapter.OnItemClickListener() {
                     @Override
@@ -51,21 +50,12 @@ public class TeamsListActivity extends AppCompatActivity {
                 }));
     }
 
-//    @Override
-//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Intent intent = new Intent(getApplicationContext(), TeamInfoActivity.class);
-//        String[] data = (String[]) mTeamsListView.getItemAtPosition(position);
-//        intent.putExtra("team_name", data[1]);
-//        startActivity(intent);
-//    }
-
     static class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements
             RecyclerView.OnItemTouchListener {
 
         private ArrayList<String[]> items;
         private OnItemClickListener mListener;
         private GestureDetector mGestureDetector;
-        private Activity mActivity;
 
         public CustomAdapter(ArrayList<String[]> categories, Context context, OnItemClickListener listener) {
             this.items = categories;

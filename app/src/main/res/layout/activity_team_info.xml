@@ -81,11 +81,13 @@
         android:background="@color/colorPrimary">
     </ImageView>
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/team_players_list"
         android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:background="#C8E6C9"
         android:layout_height="match_parent"
         android:layout_below="@+id/players_list_header_separator">
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
