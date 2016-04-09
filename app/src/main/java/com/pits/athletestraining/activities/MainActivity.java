@@ -14,6 +14,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.pits.athletestraining.R;
+import com.pits.athletestraining.utils.AppGlobals;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         GoogleApiClient.ConnectionCallbacks , GoogleApiClient.OnConnectionFailedListener {
@@ -25,10 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // google authentication
     private GoogleApiClient mGoogleApiClient;
-
     private static final String TAG = "Athlete Training";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +55,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mGoogleApiClient.connect();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (AppGlobals.isFreshLaunched()) {
+
+        }
+    }
 
     @Override
     protected void onResume() {
