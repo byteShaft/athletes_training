@@ -28,7 +28,11 @@ public class AppGlobals extends Application {
         return sPreferences;
     }
 
-    public static boolean isFreshLaunch() {
+    public static boolean isFreshLaunched() {
         return freshLaunched;
+    }
+
+    public static void firstLaunch(boolean value) {
+        freshLaunched = true;
     }
 }
