@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pits.athletestraining.R;
-import com.pits.athletestraining.utils.SimpleDividerItemDecoration;
 import com.pits.athletestraining.utils.TeamsListHelpers;
 
 import java.util.ArrayList;
@@ -38,15 +37,17 @@ public class TeamInfoActivity extends AppCompatActivity implements View.OnClickL
             TextView title = (TextView) findViewById(R.id.list_title_team);
             title.setText(titleText);
         }
-        optionItem = (Button) findViewById(R.id.option_item);
-        optionItem.setOnClickListener(this);
+
+        /*optionItem = (Button) findViewById(R.id.option_item);
+        optionItem.setOnClickListener(this);*/
+
         mRecyclerView = (RecyclerView) findViewById(R.id.team_players_list);
         ArrayList<String[]> list = new ArrayList<>();
         String[] player1 = {"logo", "Messi", "1"};
         String[] player2 = {"logo", "Ronaldo", "2"};
         String[] player3 = {"logo", "Kaka", "8"};
-        String[] player4 = {"logo", "Gerrald", "15"};
-        String[] player5 = {"logo", "Carlos", "12"};
+        String[] player4 = {"logo", "Gerrald", "5"};
+        String[] player5 = {"logo", "Carlos", "9"};
         list.add(player1);
         list.add(player2);
         list.add(player3);
@@ -56,7 +57,6 @@ public class TeamInfoActivity extends AppCompatActivity implements View.OnClickL
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.canScrollVertically(LinearLayoutManager.VERTICAL);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getApplicationContext()));
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.addOnItemTouchListener(new CustomAdapter(TeamsListHelpers.getAllTeams(),
                 getApplicationContext(),
@@ -73,9 +73,9 @@ public class TeamInfoActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.option_item:
+            /*case R.id.option_item:
                 startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
-                break;
+                break;*/
         }
     }
 
