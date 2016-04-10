@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pits.athletestraining.R;
-import com.pits.athletestraining.utils.SimpleDividerItemDecoration;
 import com.pits.athletestraining.utils.TeamsListHelpers;
 
 import java.util.ArrayList;
@@ -36,7 +35,6 @@ public class TeamsListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.canScrollVertically(LinearLayoutManager.VERTICAL);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getApplicationContext()));
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.addOnItemTouchListener(new CustomAdapter(TeamsListHelpers.getAllTeams(),
                 getApplicationContext(),

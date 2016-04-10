@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#CFD8DC">
+    android:background="@color/white">
 
     <!--rounded image for user's pic -->
     <RelativeLayout
@@ -11,16 +11,16 @@
         android:id="@+id/image_background"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:background="@android:drawable/dialog_holo_light_frame">
 
         <ImageView
             android:id="@+id/round_image"
-            android:layout_width="80dp"
-            android:layout_height="90dp"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
             android:src="@drawable/user_temp_image" />
+
     </RelativeLayout>
 
     <View
@@ -29,7 +29,7 @@
         android:layout_height="2dp"
         android:layout_below="@+id/image_background"
         android:layout_marginBottom="2dp"
-        android:background="@color/colorPrimary" />
+        android:background="@color/gray_200" />
 
     <ListView
         android:id="@+id/user_info_list"
@@ -37,6 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/view"
         android:layout_marginBottom="2dp"
-        android:divider="@color/colorPrimary"
+        android:divider="@color/gray_200"
         android:dividerHeight="1dip" />
 </RelativeLayout>

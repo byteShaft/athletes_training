@@ -21,11 +21,11 @@
 
         <activity
             android:name=".activities.TeamsListActivity"
-            android:label="Teams"/>
+            android:label="@string/teams"/>
         <activity android:name=".activities.TeamInfoActivity"/>
         <activity android:name=".activities.TabsActivity"/>
         <activity android:name=".activities.PlayerInfoActivity"
-            android:label="user details"/>
+            android:label="@string/personal_data"/>
         <activity android:name=".activities.TrainingSessionList"/>
         <activity android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
