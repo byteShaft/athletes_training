@@ -53,6 +53,7 @@
                 </View>
 
                 <TextView
+                    android:id="@+id/training_session"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -76,6 +77,7 @@
                 </View>
 
                 <TextView
+                    android:id="@+id/calculation_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
