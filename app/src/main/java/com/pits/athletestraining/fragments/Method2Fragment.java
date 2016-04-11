@@ -12,11 +12,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pits.athletestraining.R;
+import com.pits.athletestraining.utils.AppGlobals;
 
 
 public class Method2Fragment extends Fragment {
 
     private View mBaseView;
+    private TextView teamPlayer;
+    private TextView parametersView;
+    private TextView valuesView;
     private String[] valuesParameters = new String[]{"parameter1 :", "parameter2 :", "parameter3 :",
             "parameter4 :", "parameter5 :", "parameter6 :", "parameter7 :", "parameter8 :"};
 
@@ -24,6 +28,12 @@ public class Method2Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBaseView = inflater.inflate(R.layout.paramets_list_delegate, container, false);
+        teamPlayer = (TextView) mBaseView.findViewById(R.id.team_players_textview);
+        parametersView = (TextView) mBaseView.findViewById(R.id.parameters);
+        valuesView = (TextView) mBaseView.findViewById(R.id.values);
+        teamPlayer.setTypeface(AppGlobals.typefaceBold);
+        parametersView.setTypeface(AppGlobals.typefaceBold);
+        valuesView.setTypeface(AppGlobals.typefaceBold);
         ListView listView = (ListView) mBaseView.findViewById(R.id.parameters_list);
         ListAdapter listAdapter = new ListAdapter();
         listView.setAdapter(listAdapter);
@@ -60,6 +70,8 @@ public class Method2Fragment extends Fragment {
                 convertView = layoutInflater.inflate(R.layout.paremeters_values_delegate, null);
                 holder.parameters = (TextView) convertView.findViewById(R.id.parameters_textview);
                 holder.values = (EditText) convertView.findViewById(R.id.values_of_parameters);
+                holder.parameters.setTypeface(AppGlobals.typeface);
+                holder.values.setTypeface(AppGlobals.typeface);
                 holder.parameters.setText(valuesParameters[position]);
                 convertView.setTag(holder);
             } else {
