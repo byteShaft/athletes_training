@@ -1,9 +1,13 @@
 package com.pits.athletestraining.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -21,6 +25,7 @@ public class TrainingSession extends AppCompatActivity {
     private ViewHolder viewHolder;
     private ListView mListView;
     private SessionDetailAdapter sessionDetailAdapter;
+    private MenuItem menuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,5 +109,24 @@ public class TrainingSession extends AppCompatActivity {
     static class ViewHolder{
         public TextView staticPlaceHolder;
         public TextView textView;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.training_session_activity_menu, menu);
+        menuItem = menu.findItem(R.id.delete_session);
+        menuItem = menu.findItem(R.id.calculation_view);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.calculation_view:
+                startActivity(new Intent(TrainingSession.this, TabsActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
