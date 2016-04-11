@@ -14,18 +14,27 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pits.athletestraining.R;
+import com.pits.athletestraining.utils.AppGlobals;
 
 
 public class Method1Fragment extends Fragment {
 
     private View mBaseView;
     private String[] valuesParameters = new String[]{"parameter1 :", "Training Duration (min) :"};
+    private TextView teamPlayer;
+    private TextView parametersView;
+    private TextView valuesView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBaseView = inflater.inflate(R.layout.paramets_list_delegate, container, false);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        teamPlayer = (TextView) mBaseView.findViewById(R.id.team_players_textview);
+        parametersView = (TextView) mBaseView.findViewById(R.id.parameters);
+        valuesView = (TextView) mBaseView.findViewById(R.id.values);
+        teamPlayer.setTypeface(AppGlobals.typefaceBold);
+        parametersView.setTypeface(AppGlobals.typefaceBold);
+        valuesView.setTypeface(AppGlobals.typefaceBold);
         ListView listView = (ListView) mBaseView.findViewById(R.id.parameters_list);
         ListAdapter listAdapter = new ListAdapter();
         listView.setAdapter(listAdapter);
@@ -62,6 +71,8 @@ public class Method1Fragment extends Fragment {
                 convertView = layoutInflater.inflate(R.layout.paremeters_values_delegate, null);
                 holder.parameters = (TextView) convertView.findViewById(R.id.parameters_textview);
                 holder.values = (EditText) convertView.findViewById(R.id.values_of_parameters);
+                holder.parameters.setTypeface(AppGlobals.typeface);
+                holder.values.setTypeface(AppGlobals.typeface);
                 holder.parameters.setText(valuesParameters[position]);
                 convertView.setTag(holder);
             }

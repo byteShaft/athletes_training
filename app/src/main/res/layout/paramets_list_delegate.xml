@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     android:background="#CFD8DC">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <RelativeLayout
         android:id="@+id/spinner_layout"
         android:layout_width="wrap_content"
