@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_login:
+            case R.id.txv_login:
                 if (validateInput()) {
                     startActivity(new Intent(getApplicationContext(), TeamsListActivity.class));
                 }
@@ -104,18 +104,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private boolean validateInput() {
-        if (isEmpty(mUsernameEntry) && isEmpty(mPasswordEntry)) {
-            showToast("Username and Password fields empty");
-            return false;
-        }
 
         if (isEmpty(mUsernameEntry)) {
-            showToast("Username empty");
+            showToast(getString(R.string.inputUsername));
             return false;
         }
 
-        if (isEmpty(mPasswordEntry)) {
-            showToast("Password empty");
+        else if (isEmpty(mPasswordEntry)) {
+            showToast(getString(R.string.inputPwd));
             return false;
         }
 

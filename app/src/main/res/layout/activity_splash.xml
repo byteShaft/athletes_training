@@ -3,12 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/relative"
-    android:background="#d3d3d3">
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/splash"
-        android:src="@drawable/logo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleY="1.5"
+        android:scaleX="1.5"
+        android:src="@drawable/logo"/>
 
 </RelativeLayout>

@@ -5,92 +5,163 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pits.athletestraining.R;
+import com.pits.athletestraining.utils.TeamsListHelpers;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class TeamInfoActivity extends AppCompatActivity implements ListView.OnItemClickListener {
+public class TeamInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ListView mPlayersListView;
-    private ViewHolder holder;
+    private RecyclerView mRecyclerView;
+    private Button optionItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_info);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         getSupportActionBar().hide();
-        String titleText = getIntent().getExtras().getString("team_name");
-        TextView title = (TextView) findViewById(R.id.list_title_team);
-        title.setText(titleText);
+        if (getIntent().getExtras() != null) {
+            String titleText = getIntent().getExtras().getString("team_name");
+            TextView title = (TextView) findViewById(R.id.list_title_team);
+            title.setText(titleText);
+        }
 
-        mPlayersListView = (ListView) findViewById(R.id.team_players_list);
+        /*optionItem = (Button) findViewById(R.id.option_item);
+        optionItem.setOnClickListener(this);*/
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.team_players_list);
         ArrayList<String[]> list = new ArrayList<>();
         String[] player1 = {"logo", "Messi", "1"};
         String[] player2 = {"logo", "Ronaldo", "2"};
         String[] player3 = {"logo", "Kaka", "8"};
-        String[] player4 = {"logo", "Gerrald", "15"};
-        String[] player5 = {"logo", "Carlos", "12"};
+        String[] player4 = {"logo", "Gerrald", "5"};
+        String[] player5 = {"logo", "Carlos", "9"};
         list.add(player1);
         list.add(player2);
         list.add(player3);
         list.add(player4);
         list.add(player5);
-
-        PlayersListAdapter adapter = new PlayersListAdapter(
-                getApplicationContext(), R.layout.players_list_delegate, list);
-        mPlayersListView.setAdapter(adapter);
-        mPlayersListView.setOnItemClickListener(this);
+        CustomAdapter adapter = new CustomAdapter(list);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.canScrollVertically(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.addOnItemTouchListener(new CustomAdapter(TeamsListHelpers.getAllTeams(),
+                getApplicationContext(),
+                new CustomAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItem(String item) {
+                        Intent intent = new Intent(getApplicationContext(), PlayerInfoActivity.class);
+                        intent.putExtra("team_name", item);
+                        startActivity(intent);
+                    }
+                }));
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getApplicationContext(), PlayerInfoActivity.class);
-        String[] data = (String[]) mPlayersListView.getItemAtPosition(position);
-        intent.putExtra("team_name", data[1]);
-        startActivity(intent);
+    public void onClick(View v) {
+        switch (v.getId()) {
+            /*case R.id.option_item:
+                startActivity(new Intent(getApplicationContext(), PlayerInfoActivity.class));
+                break;*/
+        }
     }
 
-    private class PlayersListAdapter extends ArrayAdapter<String[]> {
+    static class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements
+            RecyclerView.OnItemTouchListener {
 
-        public PlayersListAdapter(Context context, int resource, List<String[]> objects) {
-            super(context, resource, objects);
+        private ArrayList<String[]> items;
+        private OnItemClickListener mListener;
+        private GestureDetector mGestureDetector;
+        private static CustomView viewHolder;
+
+        public CustomAdapter(ArrayList<String[]> categories, Context context, OnItemClickListener listener) {
+            this.items = categories;
+            mListener = listener;
+            mGestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+            });
+        }
+
+        public CustomAdapter(ArrayList<String[]> categories) {
+            this.items = categories;
+        }
+
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(
+                    R.layout.players_list_delegate, parent, false);
+            viewHolder = new CustomView(view);
+            return viewHolder;
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                LayoutInflater inflater = (LayoutInflater)
-                        getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.players_list_delegate, parent, false);
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+            holder.setIsRecyclable(false);
+            viewHolder.title.setText(items.get(position)[1]);
+            viewHolder.number.setText(items.get(position)[2]);
+        }
 
-                holder = new ViewHolder();
-                holder.title = (TextView) convertView.findViewById(R.id.players_list_title_team);
-                holder.logo = (ImageView) convertView.findViewById(R.id.players_list_logo_team);
-                holder.number = (TextView) convertView.findViewById(R.id.players_list_shirt_number);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+            View childView = rv.findChildViewUnder(e.getX(), e.getY());
+            if (childView != null && mListener != null && mGestureDetector.onTouchEvent(e)) {
+                mListener.onItem(items.get(rv.getChildPosition(childView))[1]);
+                return true;
             }
-            holder.title.setText(getItem(position)[1]);
-            holder.number.setText(getItem(position)[2]);
-//            holder.logo.setBackground(null);
-            return convertView;
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+        }
+
+        public interface OnItemClickListener {
+            void onItem(String item);
         }
     }
 
-    static class ViewHolder {
+    // custom viewHolder to access xml elements requires a view in constructor
+    public static class CustomView extends RecyclerView.ViewHolder {
+
         public ImageView logo;
         public TextView title;
         public TextView number;
+
+        public CustomView(View itemView) {
+            super(itemView);
+            title = (TextView) itemView.findViewById(R.id.players_list_title_team);
+            logo = (ImageView) itemView.findViewById(R.id.players_list_logo_team);
+            number = (TextView) itemView.findViewById(R.id.players_list_shirt_number);
+        }
     }
+
+
 }

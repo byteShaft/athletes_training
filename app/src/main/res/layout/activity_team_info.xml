@@ -3,18 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#CFD8DC">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/team_info_header_container"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
-        android:layout_height="70dp" >
+        android:layout_height="54dp" >
 
         <RelativeLayout
             android:id="@+id/team_logo_container"
-            android:layout_width="90dp"
+            android:layout_width="64dp"
             android:layout_height="match_parent"
             android:background="@android:drawable/dialog_holo_light_frame">
 
@@ -28,12 +27,13 @@
 
         <TextView
             android:id="@+id/list_title_team"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:textSize="17sp"
-            android:textColor="#ffffff"
-            android:text="Teaaaaaaaam"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="Team"
+            android:textStyle="bold"
             android:layout_toRightOf="@+id/team_logo_container" />
 
     </RelativeLayout>
@@ -41,51 +41,59 @@
     <ImageView
         android:id="@+id/line_header_center"
         android:layout_width="match_parent"
-        android:layout_height=".1dp"
-        android:background="#CFD8DC"
+        android:layout_height="1dp"
+        android:background="@color/white"
         android:layout_below="@+id/team_info_header_container">
     </ImageView>
 
     <RelativeLayout
         android:id="@+id/team_info_subheader_container"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/line_header_center"
         android:background="@color/colorPrimary" >
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="7dp"
             android:textSize="17sp"
-            android:textColor="#ffffff"
-            android:text="Other Team Info" />
+            android:textColor="@color/white"
+            android:text="@string/other_team_info"
+            android:textStyle="bold"/>
 
     </RelativeLayout>
 
     <TextView
         android:id="@+id/players_list_header"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
         android:layout_below="@+id/team_info_subheader_container"
         android:gravity="center"
         android:textSize="17sp"
-        android:textColor="#000000"
-        android:text="Players" />
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="@string/players"
+        android:background="@color/white"/>
 
-    <ImageView
+    <View
         android:id="@+id/players_list_header_separator"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_below="@+id/players_list_header"
-        android:background="@color/colorPrimary">
-    </ImageView>
+        android:background="@color/light_blue"/>
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/team_players_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:scrollbars="none"
+        android:background="@color/white"
         android:layout_below="@+id/players_list_header_separator">
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

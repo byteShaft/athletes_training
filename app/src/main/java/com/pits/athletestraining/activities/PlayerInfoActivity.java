@@ -91,7 +91,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
         dynamicData.add("7th street avenue london");
         dynamicData.add("test");
         dynamicData.add("21-09-1992");
-        dynamicData.add("+92*******");
+        dynamicData.add("+9214569875");
         dynamicData.add("example@something.com");
         dynamicData.add("other details about the player");
     }

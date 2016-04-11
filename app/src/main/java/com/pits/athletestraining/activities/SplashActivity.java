@@ -33,6 +33,7 @@ public class SplashActivity extends Activity {
         super.onResume();
         if (!AppGlobals.isFreshLaunch()) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
         }
         AlphaAnimation  blinkanimation= new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
         blinkanimation.setDuration(1000); // duration - half a second

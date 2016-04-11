@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Athletes Training</string>
     <string name="full_name">Full Name</string>
+
+    <string name="logo_image">Logo Image</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="inputUsername">Please input your username.</string>
+    <string name="inputPwd">Please input your password.</string>
+    <string name="other_team_info">Other Team Info</string>
+    <string name="players">Players</string>
+    <string name="personal_data">Personal Data</string>
+    <string name="teams">Teams</string>
 </resources>
