@@ -9,6 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +27,7 @@ public class TeamsListActivity extends AppCompatActivity {
 
     public static CustomView viewHolder;
     public RecyclerView mRecyclerView;
+    private MenuItem menuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,5 +130,23 @@ public class TeamsListActivity extends AppCompatActivity {
             logo = (ImageView) itemView.findViewById(R.id.list_logo_team);
             title = (TextView) itemView.findViewById(R.id.list_title_team);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.teams_list_activity_menu, menu);
+        menuItem = menu.findItem(R.id.session_details);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.session_details:
+                startActivity(new Intent(TeamsListActivity.this, TrainingSession.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

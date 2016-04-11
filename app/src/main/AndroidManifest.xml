@@ -18,20 +18,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.TeamsListActivity"
-            android:label="@string/teams"/>
-        <activity android:name=".activities.TeamInfoActivity"/>
-        <activity android:name=".activities.TabsActivity"/>
-        <activity android:name=".activities.PlayerInfoActivity"
-            android:label="@string/personal_data"/>
-        <activity android:name=".activities.TrainingSessionList"/>
-        <activity android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="@string/teams" />
+        <activity android:name=".activities.TeamInfoActivity" />
+        <activity android:name=".activities.TabsActivity" />
+        <activity
+            android:name=".activities.PlayerInfoActivity"
+            android:label="@string/personal_data" />
+        <activity android:name=".activities.TrainingSessionList" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".activities.TrainingSession"></activity>
     </application>
 
 </manifest>
